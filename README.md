@@ -1,6 +1,6 @@
 # RQ-Generic-solver
 
-Automatic solver for range query problems, based on multiple algorithms implementations as **prefix sums**, **fenwik tree**, **segment tree** ans possible others. 
+Automatic solver for range query problems, based on multiple algorithms implementations as **prefix sums**, **fenwik tree**, **segment tree** and possible others. <br/> 
 An optimal solution will be found based on what method you require from it to have, using compile-time evaluation and templates. 
 
 ```
