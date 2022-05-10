@@ -14,9 +14,9 @@ struct functor_wrapper {
 
 	template<typename Ftype>
 	functor_wrapper(Ftype f) : fun(f) {
-		fun_range = [fun=fun](const T & v, size_t sz) {
+		fun_range = [this](const T & v, size_t sz) {
 			if (sz == 1) return v;
-			T t = fun(v, v);
+			T t = fun_range(v, v);
 			return (sz & 1) ? fun(fun(t, t), v) : fun(t, t);
 		};
 	}

@@ -21,7 +21,7 @@ int main(){
 	cout << s2.get_range(2, 4) << endl; //5
 
 	auto s3 = RQ_solver<int, method::get_sum, method::set, method::add>(data);
-	cout << s3.get_name() << endl;    //fenwik_solver
+	cout << s3.get_name() << endl;    //fenwick_solver
 	cout << s3.get_sum(0, 6) << endl; //15
 	s3.set(0, 1);                     
 	cout << s3.get_range(0, 6) << endl; //16, target function is derived as Sum, so get_range is the same method as get_sum
@@ -42,14 +42,14 @@ int main(){
 
 	auto s6 = RQ_solver<int, method::get_range, method::set_range>
 		(data, [](int a, int b) {return a + b;});
-	cout << s6.get_name() << endl;   //segment tree with delayed midifications
+	cout << s6.get_name() << endl;   //segment tree with delayed midifications, log^2 for each query since we don't know how to apply function for equal elements efficiently 
 	cout << s6.get_range(1, 5) << endl;//10
 	s6.set_range(3, 6, 0);
 	cout << s6.get_range(1, 5) << endl;//3
 
 	auto s7 = RQ_solver<int, method::get_range, method::set_range>
 		(data, [](int a, int b) {return a + b;}, [](int a, int len){ return a * len;});
-	cout << s7.get_name() << endl;   //segment tree with delayed midifications
+	cout << s7.get_name() << endl;   //segment tree with delayed midifications, log for each query since now we know how to apply function for equal elements in constant time
 	cout << s7.get_range(1, 5) << endl;//10
 	s7.set_range(3, 6, 0);
 	cout << s7.get_range(1, 5) << endl;//3
