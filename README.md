@@ -3,7 +3,7 @@
 Automatic solver for range query problems, based on multiple algorithms implementations as **prefix sums**, **fenwik tree**, **segment tree** and possible others. <br/> 
 An optimal solution will be found based on what method you require from it to have, using compile-time evaluation and templates. 
 
-```
+```cpp
 std::vector<int> data = {0, 1, 2, 3, 4, 5};
 int data_arr[6] = {0, 1, 2, 3, 4, 5};
 
@@ -20,7 +20,7 @@ auto s3 = RQ_solver<int, method::get_sum, method::set, method::add>(data);
 cout << s3.get_name() << endl;    //fenwik_solver
 cout << s3.get_sum(0, 6) << endl; //15
 s3.set(0, 1);                     
-cout << s3.get_range(0, 6) << endl; //16, target function is derived as Sum, so get_range is the same methid as get_sum
+cout << s3.get_range(0, 6) << endl; //16, target function is derived as Sum, so get_range is the same method as get_sum
 s3.add(0, -1);
 cout << s3.get_range(0, 6) << endl; //15
 
